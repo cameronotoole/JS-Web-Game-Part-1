@@ -1,13 +1,13 @@
 function tile(url, left, bottom, width, height) {
-    for (const h = 0; h < height; h++) {
-        for (const w = 0; w < width; w++) {
+    for (let h = 0; h < height; h++) {
+        for (let w = 0; w < width; w++) {
             newImage(url, left + w * 100, bottom + h * 100)
         }
     }
 }
 
 function newImage(url, left, bottom) {
-    const object = document.createElement('img')
+    let object = document.createElement('img')
     object.src = url
     object.style.position = 'fixed'
     object.style.left = left + 'px'
@@ -17,7 +17,7 @@ function newImage(url, left, bottom) {
 }
 
 function newItem(url, left, bottom) {
-    const object = newImage(url, left, bottom)
+    let object = newImage(url, left, bottom)
 
     object.addEventListener('dblclick', () => {
         object.remove()
@@ -25,9 +25,9 @@ function newItem(url, left, bottom) {
 }
 
 
-const horizon = window.innerHeight / 1.65
-const heightOfSky = window.innerHeight - horizon
-const heightOfGrass = horizon
+let horizon = window.innerHeight / 1.75
+let heightOfSky = window.innerHeight - horizon
+let heightOfGrass = horizon
 
 tile('assets/sky.png', 0, horizon, window.innerWidth / 100, heightOfSky / 100)
 tile('assets/grass.png', 0, 0, window.innerWidth / 100, heightOfGrass / 100)
